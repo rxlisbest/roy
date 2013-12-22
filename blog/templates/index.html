@@ -1,92 +1,65 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
+<!doctype html public "-//w3c//dtd html 4.01//en"
+   "http://www.w3.o/static/html4/strict.dtd">
 
 <html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>roy home</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>blueprint sample page</title>
 
-    <!-- Framework CSS -->
+    <!-- framework css -->
     <link rel="stylesheet" href="/static/blueprint/screen.css" type="text/css" media="screen, projection">
     <link rel="stylesheet" href="/static/blueprint/print.css" type="text/css" media="print">
-    <!--[if lt IE 8]><link rel="stylesheet" href="/static/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
-    <style type="text/css" media="screen">
-      p, table, hr, .box { margin-bottom:25px; }
-      .box p { margin-bottom:10px; }
-    </style>
+    <!--[if lt ie 8]><link rel="stylesheet" href="/static/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+    <!-- import fancy-type plugin for the sample page. -->
+    <link rel="stylesheet" href="/static/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
   </head>
   <body>
-
     <div class="container">
       <h1>Roy Home</h1>
       <hr>
-
-      <p>Welcome to the Roy Home.<p>
-
-      <table border="0" cellspacing="0" cellpadding="0">
-        <caption>Recent Essay</caption>
-        <thead>
-          <tr>
-            <th class="span-6">Title</th>
-            <th class="span-8">Type</th>
-            <th class="span-10">Abstract</th>
-          </tr>
-        </thead>
-        <tbody>
-	{% for item in recent%}
-	{% if forloop.counter|divisibleby:"2" %}
-          <tr class="even">
-	{% else %} 
-          <tr>
-	{% endif %}
-            <td><a href="/static/parts/sample.html">{{item.title}}</a></td>
-            <td>
-              {{item.eType}}
-            </td>
-            <td>{{item.abstract}}</td>
-          </tr>
-	{% endfor %}
-        </tbody>
-      </table>
-
-      <table border="0" cellspacing="0" cellpadding="0">
-        <caption>Blueprint plugin tests</caption>
-        <thead>
-          <tr>
-            <th class="span-6">Test page</th>
-            <th class="span-8">Main files tested</th>
-            <th class="span-10">Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><a href="/static/parts/plugins/link-icons.html">Link icons</a></td>
-            <td>
-              <a href="/static/blueprint/plugins/link-icons/screen.css">link-icons/screen.css</a>
-            </td>
-            <td>Shows the different links the <em>link-icons</em> plugin supports.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p><em><strong>Note about the compressed versions:</strong></em>
-      These test files utilize the compressed files. In other words, if you change any of the source files,
-      you'll have to re-compress them with the ruby script in the scripts folder to see any&nbsp;changes.</p>
-
-      <div class="box">
-        <p>Eassy Type:</p>
-        <ul class="bottom">
-	{% for item in essay_type %}
-          <li><a href="http://blueprintcss.org">{{item.tname}}</a></li>
-	{% endfor %}
-          <li><a href="http://github.com/joshuaclayton/blueprint-css/wikis/home">The Blueprint Wiki</a></li>
-          <li><a href="http://groups.google.com/group/blueprintcss">The Blueprint mailing list</a></li>
-        </ul>
+      <h2 class="alt">Welcome to Roy Home.</h2>
+      <hr>
+      <div class="span-7 colborder">
+        <h6>{{recent.1.title}}</h6>
+	<p>{{recent.1.abstract}}</p>
       </div>
-
-      <p><a href="http://validator.w3.org/check?uri=referer">
-        <img src="/static/parts/valid.png" alt="Valid HTML 4.01 Strict" height="31" width="88" class="top"></a></p>
-
+      <div class="span-8 colborder">
+        <h6>{{recent.2.title}}</h6>
+        <p>{{recent.2.abstract}}</p>
+      </div>
+      <div class="span-7 last">
+        <h6>{{recent.3.title}}</h6>
+        <p>{{recent.3.abstract}}</p>
+      </div>
+      <hr>
+      <hr class="space">
+      <div class="span-15 prepend-1 colborder">
+        <h6>{{recent.0.title}}</h6>
+	<p>{{recent.0.content}}</p>
+        <hr>
+        <div class="span-7 colborder">
+          <h6>This is a nested column</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+        <div class="span-7 last">
+          <h6>This is another nested column</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+      </div>
+      <div class="span-7 last">
+        <h3>Message <span class="alt">Zone</span></h3>
+        <h5></h5>
+	<p></p>
+      </div>
+      <hr>
+      <h2 class="alt">You may pick and choose amongst these and many more features, so be bold.</h2>
+      <hr>
+      <p>
+        <a href="http://validator.w3.org/check?uri=referer">
+          <img src="valid.png" alt="Valid HTML 4.01 Strict" height="31" width="88" class="top">
+        </a>
+      </p>
     </div>
   </body>
 </html>

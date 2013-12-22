@@ -39,6 +39,7 @@ def index(request,pageNo=None,etype=None,keyword=None):
 	curPage=paginator.page(pgNo)  
 	#返回到mian.html模板页  
 	return render_to_response('index.html',{  
+		'datas':datas,
 		'page':curPage,  
 		'essay_type':EssayType.objects.all(),  
 		'pcount':paginator.num_pages,  
@@ -47,7 +48,7 @@ def index(request,pageNo=None,etype=None,keyword=None):
 		#'welcome':Essay.objects.filter(title='welcome')[0]})
 		})
 	#文章详细信息
-def essay_details(request,eid=None):
+def essay_details(request,eid=1):
 	#返回文章详细信息或者404页面
 	essay=get_object_or_404(Essay,id=eid)
 	recentList=Essay.objects.all()[:5]
@@ -59,7 +60,7 @@ def essay_details(request,eid=None):
 		#文章浏览次数+1
 	essay.view_count=essay.view_count+1
 	essay.save()
-	return render_to_response('details.html',{
+	return render_to_response('detail.html',{
 			'essay':essay,
 			'essay_type':EssayType.objects.all(),
 			'archives':Archive.objects.all(),
